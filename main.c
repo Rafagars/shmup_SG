@@ -85,6 +85,9 @@ int main(){
             positionBullet();
             positionEnemies();
             handleCollision();
+            if(lives < 1){
+                endGame();
+            }
             SPR_update();
         }
         SYS_doVBlankProcess();

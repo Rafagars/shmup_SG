@@ -3,6 +3,7 @@
 u8 i;
 const int scrollsped = 2;
 
+//HUD
 u16 score = 0;
 char label_score[6] = "SCORE\0";
 char str_score[6] = "0";
@@ -10,6 +11,7 @@ u8 lives = 3;
 char label_lives[6] = "LIVES\0";
 char str_lives[3] = "X3";
 
+// Constants for the game
 const u16 max_speed = 4;
 const u8 max_enemies = 5;
 const u8 max_bullets = 3;
@@ -40,7 +42,8 @@ void startGame(){
         VDP_drawText(str_score, 1, 1);
         VDP_drawText(label_lives, 32, 0);
         VDP_drawText(str_lives, 35, 1);
-        //updateScoreDisplay();
+        updateScoreDisplay();
+        updateLivesDisplay();
     }
 
 }
@@ -130,6 +133,8 @@ void positionEnemies(){
         enemies[i].x += enemies[i].vel_x;
         enemies[i].y += enemies[i].vel_y;
         if(checkCollision(&player, &enemies[i]) == TRUE){
+            player.x = 120;
+            player.y = 160;
             lives--;
             updateLivesDisplay();
         }
