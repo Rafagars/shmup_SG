@@ -2,6 +2,7 @@
 
 u8 i;
 const int scrollsped = 2;
+bool onTitle;
 
 //HUD
 u16 score = 0;
@@ -36,8 +37,6 @@ void startGame(){
     if(game_on == FALSE){
         game_on = TRUE;
         clearText();
-        VDP_setTextPlane(BG_A);
-        VDP_setTextPalette(PAL0);
         VDP_drawText(label_score, 1, 0);
         VDP_drawText(str_score, 1, 1);
         VDP_drawText(label_lives, 32, 0);
@@ -92,6 +91,10 @@ void myJoyHandler(u16 joy, u16 changed, u16 state){
         } else{
             if(state & BUTTON_START){
                 startGame();
+                if(onTitle == TRUE){
+                    VDP_clearText(0, 23, 32);
+                    level1();
+                }
             }
         }
     }

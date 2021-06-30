@@ -6,4 +6,3 @@ GameCharacter enemies[5];
 
 GameCharacter bullets[3];
 
-//GameCharacter enemies[0] = {120, 40, 0, 0, 40, 48, NULL, "ENEMY"};

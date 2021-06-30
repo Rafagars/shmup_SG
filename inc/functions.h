@@ -6,6 +6,7 @@
 #include <resources.h>
 #include <string.h>
 #include "gameCharacter.h"
+#include "scenes.h"
 
 #define LEFT_EDGE  0
 #define RIGHT_EDGE 300
@@ -17,6 +18,7 @@
 
 extern u8 i;
 extern const u8 scrollspeed;
+extern bool onTitle;
 
 extern u16 score;
 extern char label_score[6];

@@ -6,6 +6,8 @@ extern const u8 sfx_explo[24320];
 extern const SpriteDefinition ship;
 extern const SpriteDefinition enemy;
 extern const SpriteDefinition bullet;
+extern const SpriteDefinition en_bullet;
+extern const Image title;
 extern const Image bg_b;
 
 #endif // _RES_RESOURCES_H_

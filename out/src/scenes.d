@@ -1,4 +1,4 @@
-out/src/functions.o: src/functions.c inc/functions.h \
+out/src/scenes.o: src/scenes.c inc/scenes.h inc/functions.h \
  /home/rafagars/SGDK/inc/genesis.h /home/rafagars/SGDK/inc/config.h \
  /home/rafagars/SGDK/inc/asm.h /home/rafagars/SGDK/inc/types.h \
  /home/rafagars/SGDK/inc/sys.h /home/rafagars/SGDK/inc/sram.h \
@@ -17,5 +17,4 @@ out/src/functions.o: src/functions.c inc/functions.h \
  /home/rafagars/SGDK/inc/ym2612.h /home/rafagars/SGDK/inc/psg.h \
  /home/rafagars/SGDK/inc/joy.h /home/rafagars/SGDK/inc/timer.h \
  /home/rafagars/SGDK/inc/maths.h res/resources.h \
- /home/rafagars/SGDK/inc/string.h inc/gameCharacter.h inc/scenes.h \
- inc/functions.h
+ /home/rafagars/SGDK/inc/string.h inc/gameCharacter.h inc/scenes.h

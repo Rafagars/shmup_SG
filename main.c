@@ -1,7 +1,6 @@
 #include <genesis.h>
 #include "functions.h"
 
-u16 index;
 
 int main(){
 
@@ -15,18 +14,11 @@ int main(){
     // Disable interrupts
     SYS_disableInts();
 
-    index += TILE_USERINDEX;
-
-    VDP_setPalette(PAL1, ship.palette->data);
-    VDP_setPalette(PAL2, enemy.palette->data);
-
-    VDP_drawImageEx(BG_B, &bg_b, TILE_ATTR_FULL(PAL1, 0, FALSE, FALSE, index), 0, 0, FALSE, DMA);
-
-    index += bg_b.tileset->numTile;
-    startGame();
+    titleScreen();
 
     SPR_init(0, 0, 0);
     player.sprite = SPR_addSprite(&ship, player.x, player.y, TILE_ATTR(PAL1, 1, FALSE, FALSE));
+    killCharacter(&player);
 
     //Create all obstacles sprites
 
@@ -39,8 +31,9 @@ int main(){
         enemies[i].flip = FALSE;
         enemies[i].vel_x = 0;
         enemies[i].vel_y = 0;
-        enemies[i].sprite = SPR_addSprite(&enemy, enemies[i].x, enemies[i].y, TILE_ATTR(PAL2, 0, FALSE, FALSE));
+        enemies[i].sprite = SPR_addSprite(&enemy, enemies[i].x, enemies[i].y, TILE_ATTR(PAL2, 1, FALSE, FALSE));
         sprintf(enemies[i].name, "Enemy%d", i);
+        killCharacter(&enemies[i]);
     }
 
     // Create bullets sprites
@@ -59,8 +52,6 @@ int main(){
 
     //Plane scroll
     VDP_setScrollingMode(HSCROLL_PLANE, VSCROLL_PLANE);
-
-    game_on = TRUE;
 
     u8 offset = 0;
     while(1){
